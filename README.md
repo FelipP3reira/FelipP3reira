@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="https://www.canva.com/design/DAG_nMt_tVo/fRNUXaRMIE6GFnymvIfIXQ/view?utm_content=DAG_nMt_tVo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9b499cac43" alt="Banner do Perfil">
+  <img src="banner.png" alt="Meu Banner">
 </p>
-
 Hi , I'm Student of Systems Analysis and Development at IFSP, with graduation expected at the end of 2026. Currently working as a Dev at EnterScience focused on developing on-demand software and applications, with practical experience in PHP (Laravel) and JavaScript/TypeScript (Node.js) ecosystems and beginning my journey in C# and .DotNet. I have advanced English certified by Cambridge (B1/B2) and ease with financial business rules.
 
 ### Technology Stack 🛠️
@@ -18,6 +17,3 @@ Hi , I'm Student of Systems Analysis and Development at IFSP, with graduation ex
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=FelipP3reira&layout=compact&theme=dracula" alt="Linguagens mais usadas" />
 </p>
 
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=FelipP3reira&theme=dracula" alt="Streak do GitHub" />
-</p>
