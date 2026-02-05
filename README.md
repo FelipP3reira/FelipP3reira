@@ -13,6 +13,11 @@ Hi , I'm Student of Systems Analysis and Development at IFSP, with graduation ex
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
 
 ### My GitHub Stats 📊
+
 <p align="center">
-  <img src="https://metrics.lecoq.io/FelipP3reira?template=classic&base.header=0&base.activity=0&base.community=0&base.repositories=0&base.metadata=0&languages=1&languages.ignored=html,css&theme=dracula" alt="Metrics" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=FelipP3reira&show_icons=true&theme=dracula" alt="Estatísticas do GitHub" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=FelipP3reira&layout=compact&theme=dracula" alt="Linguagens mais usadas" />
 </p>
