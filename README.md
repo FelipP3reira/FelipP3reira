@@ -14,5 +14,5 @@ Hi , I'm Student of Systems Analysis and Development at IFSP, with graduation ex
 
 ### My GitHub Stats 📊
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=FelipP3reira&show_icons=true&theme=dracula" alt="Estatísticas do GitHub" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=FelipP3reira&theme=dracula" alt="GitHub Streak" />
 </p>
