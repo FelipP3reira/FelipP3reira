@@ -1,7 +1,7 @@
 <p align="center">
   <img src="Banner.png" alt="Meu Banner">
 </p>
-Hi , I'm Student of Systems Analysis and Development at IFSP, with graduation expected at the end of 2026. Currently working as a Dev at EnterScience focused on developing on-demand software and applications, with practical experience in PHP (Laravel) and JavaScript/TypeScript (Node.js) ecosystems and beginning my journey in C# and .DotNet. I have advanced English certified by Cambridge (B1/B2) and ease with financial business rules.
+Hi , I'm Student of Systems Analysis and Development , with graduation expected at the end of 2026. Currently working as a Dev at EnterScience focused on developing on-demand software and applications, with practical experience in PHP (Laravel) and JavaScript/TypeScript (Node.js) ecosystems and beginning my journey in C# and .DotNet. I have advanced English certified by Cambridge (B1/B2) and ease with financial business rules.
 
 ### Technology Stack 🛠️
 
