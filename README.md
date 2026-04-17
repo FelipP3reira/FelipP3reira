@@ -1,7 +1,7 @@
 <p align="center">
   <img src="Banner.png" alt="Meu Banner">
 </p>
-Hi , I'm Student of Systems Analysis and Development , with graduation expected at the end of 2026. Currently working as a Dev at EnterScience focused on developing on-demand software and applications, with practical experience in PHP (Laravel) and JavaScript/TypeScript (Node.js) ecosystems and beginning my journey in C# and .DotNet. I have advanced English certified by Cambridge (B1/B2) and ease with financial business rules.
+Hi , I'm Student of Systems Analysis and Development , with graduation expected at the end of 2026. Currently working as a Dev at EnterScience focused on developing on-demand software and applications, with practical experience in PHP (Laravel) and JavaScript/TypeScript (Node.js) ecosystems and Python . I have advanced English certified by Cambridge (B1/B2) and ease with financial business rules.
 
 ### Technology Stack 🛠️
 
@@ -10,7 +10,7 @@ Hi , I'm Student of Systems Analysis and Development , with graduation expected 
 ![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Csharp](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
-![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![Python](https://img.shields.io/badge/python-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
 
 ### My GitHub Stats 📊
 
