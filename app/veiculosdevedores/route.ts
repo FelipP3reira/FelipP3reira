@@ -3,6 +3,14 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const veiculos = await prisma.veiculo.findMany({
+    where: {
+      multas: {
+        some: {
+          dataPagamento: null,
+          valorPago: null,
+        },
+      },
+    },
     select: {
       placa: true,
       modelo: true,
@@ -30,7 +38,6 @@ export async function GET() {
         valorTotalMultas,
       };
     })
-     .filter((veiculo: { totalMultasNaoPagas: number }) => veiculo.totalMultasNaoPagas > 0)
     .sort((a: { valorTotalMultas: number; placa: string }, b: { valorTotalMultas: number; placa: string }) => {
       if (b.valorTotalMultas !== a.valorTotalMultas) {
         return b.valorTotalMultas - a.valorTotalMultas;
