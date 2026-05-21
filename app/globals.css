@@ -111,3 +111,27 @@ button:disabled {
   border-top: 1px solid var(--border);
   padding-top: 8px;
 }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination a,
+.pagination .disabled {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: inherit;
+  background: #eff6ff;
+}
+
+.pagination .disabled {
+  opacity: 0.5;
+}

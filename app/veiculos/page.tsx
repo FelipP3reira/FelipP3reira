@@ -1,10 +1,13 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 type Params = {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
+
+const PAGE_SIZE = 5;
 
 function parseIntValue(value: FormDataEntryValue | null, fieldName: string): number {
   const parsed = Number(value);
@@ -112,10 +115,18 @@ export default async function VeiculosPage({ searchParams }: Params) {
   const params = (await searchParams) ?? {};
   const msg = typeof params.msg === "string" ? params.msg : "";
   const err = typeof params.err === "string" ? params.err : "";
+  const parsedPage = typeof params.page === "string" ? Number(params.page) : 1;
+  const requestedPage = Number.isInteger(parsedPage) && parsedPage > 0 ? parsedPage : 1;
+
+  const totalVeiculos = await prisma.veiculo.count();
+  const totalPages = Math.max(1, Math.ceil(totalVeiculos / PAGE_SIZE));
+  const currentPage = Math.min(requestedPage, totalPages);
 
   const veiculos = await prisma.veiculo.findMany({
     orderBy: { placa: "asc" },
     include: { multas: { select: { id: true } } },
+    skip: (currentPage - 1) * PAGE_SIZE,
+    take: PAGE_SIZE,
   });
 
   return (
@@ -191,6 +202,23 @@ export default async function VeiculosPage({ searchParams }: Params) {
           })}
           {veiculos.length === 0 ? <p>Nenhum veículo cadastrado.</p> : null}
         </div>
+        {totalPages > 1 ? (
+          <div className="pagination">
+            {currentPage > 1 ? (
+              <Link href={`/veiculos?page=${currentPage - 1}`}>Anterior</Link>
+            ) : (
+              <span className="disabled">Anterior</span>
+            )}
+            <span>
+              Página {currentPage} de {totalPages}
+            </span>
+            {currentPage < totalPages ? (
+              <Link href={`/veiculos?page=${currentPage + 1}`}>Próxima</Link>
+            ) : (
+              <span className="disabled">Próxima</span>
+            )}
+          </div>
+        ) : null}
       </section>
     </main>
   );

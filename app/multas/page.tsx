@@ -1,10 +1,13 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 type Params = {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
+
+const PAGE_SIZE = 5;
 
 function parseNumber(value: FormDataEntryValue | null, fieldName: string): number {
   const parsed = Number(value);
@@ -148,6 +151,11 @@ export default async function MultasPage({ searchParams }: Params) {
   const params = (await searchParams) ?? {};
   const msg = typeof params.msg === "string" ? params.msg : "";
   const err = typeof params.err === "string" ? params.err : "";
+  const parsedPage = typeof params.page === "string" ? Number(params.page) : 1;
+  const requestedPage = Number.isInteger(parsedPage) && parsedPage > 0 ? parsedPage : 1;
+  const totalMultas = await prisma.multa.count();
+  const totalPages = Math.max(1, Math.ceil(totalMultas / PAGE_SIZE));
+  const currentPage = Math.min(requestedPage, totalPages);
 
   const [veiculos, multas] = await Promise.all([
     prisma.veiculo.findMany({
@@ -157,6 +165,8 @@ export default async function MultasPage({ searchParams }: Params) {
     prisma.multa.findMany({
       include: { veiculo: { select: { placa: true, modelo: true } } },
       orderBy: [{ dataAplicacao: "desc" }, { valor: "desc" }],
+      skip: (currentPage - 1) * PAGE_SIZE,
+      take: PAGE_SIZE,
     }),
   ]);
 
@@ -260,6 +270,23 @@ export default async function MultasPage({ searchParams }: Params) {
           })}
           {multas.length === 0 ? <p>Nenhuma multa cadastrada.</p> : null}
         </div>
+        {totalPages > 1 ? (
+          <div className="pagination">
+            {currentPage > 1 ? (
+              <Link href={`/multas?page=${currentPage - 1}`}>Anterior</Link>
+            ) : (
+              <span className="disabled">Anterior</span>
+            )}
+            <span>
+              Página {currentPage} de {totalPages}
+            </span>
+            {currentPage < totalPages ? (
+              <Link href={`/multas?page=${currentPage + 1}`}>Próxima</Link>
+            ) : (
+              <span className="disabled">Próxima</span>
+            )}
+          </div>
+        ) : null}
       </section>
     </main>
   );
