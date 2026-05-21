@@ -1,13 +1,34 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
-  provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Veiculo {
+  id            Int      @id @default(autoincrement())
+  placa         String   @unique
+  modelo        String
+  cor           String
+  anoFabricacao Int
+  anoModelo     Int
+  multas        Multa[]
+  criadoEm      DateTime @default(now())
+  atualizadoEm  DateTime @updatedAt
+}
+
+model Multa {
+  id             Int      @id @default(autoincrement())
+  veiculoId      Int
+  veiculo        Veiculo  @relation(fields: [veiculoId], references: [id], onDelete: Restrict)
+  codigoInfracao String
+  detalhamento   String
+  valor          Float
+  dataAplicacao  DateTime
+  dataPagamento  DateTime?
+  valorPago      Float?
+  criadoEm       DateTime @default(now())
+  atualizadoEm   DateTime @updatedAt
 }
